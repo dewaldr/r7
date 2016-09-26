@@ -1,0 +1,63 @@
+<?php
+/**
+ * login.phtml
+ *
+ * @package default
+ */
+
+
+$f3 = \Base::instance() ?>
+
+<?php echo \View::instance()->render('views/header.phtml'); ?>
+
+<div id="logo-parent">
+    <div id="logo-child">
+    <img style="display:block; margin-left:auto; margin-right:auto;" 
+        src="img/robot7-anim-web.gif" id="robot" alt="Robot Seven Logo" />
+    <h2 style="text-align:center">Robot 7</h2>
+    <p style="text-align:center">simplified telemetry, actuation &amp; scheduling</p>
+  </div>
+</div>
+
+<div id="loginModal" class="reveal-modal small" data-reveal>
+  <h2>Log in to continue...</h2>
+  <form data-abide>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="username-field">
+          <label>Username <small>required</small></label>
+          <input name="login" type="text" required pattern="[0-9a-zA-Z\_\-\.]+">
+          <small class="error">An alpha-numeric username is required.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="password-field">
+          <label>Password <small>required</small></label>
+          <input name="password" type="password" required>
+          <small class="error">A password is required.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <button type="submit" formaction="/login" formmethod="post">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+
+  $('#loginModal').data('reveal-init', {
+      close_on_esc: false,
+      close_on_background_click: false
+  });
+  $(document).ready(function() {
+    $("#loginModal").foundation('reveal', 'open');
+  });
+
+</script>
+
+<?php echo \View::instance()->render('views/footer.phtml'); ?>

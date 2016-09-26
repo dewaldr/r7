@@ -1,0 +1,6 @@
+#!/bin/bash
+R7BASE=/usr/share/robot7
+PYTHONPATH=$PYTHONPATH:$R7BASE/lib/python
+export R7BASE PYTHONPATH
+
+/usr/bin/python2 $R7BASE/lib/python/r7core.pyo -dc $R7BASE/config/r7core.conf

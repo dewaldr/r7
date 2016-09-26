@@ -1,0 +1,17 @@
+<?php
+/**
+ * notify.phtml
+ *
+ * @package default
+ */
+
+
+$f3 = \Base::instance() ?>
+
+<?php foreach ($f3->get('SESSION.notifications') as $type => $notifications): if (count($notifications) == 0) continue; ?>
+    <ul class="<?php echo $type ?>">
+    <?php foreach ($notifications as $notification): ?>
+        <li class="<?php echo $type ?>"><span class="hidden"><?php echo $type ?>:</span><?php echo $notification ?></li>
+    <?php endforeach; ?>
+    </ul>
+<?php endforeach; ?>

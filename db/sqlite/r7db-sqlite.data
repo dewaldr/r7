@@ -1,0 +1,25 @@
+PRAGMA foreign_keys=OFF;
+
+DELETE FROM "sqlite_sequence";
+
+BEGIN TRANSACTION;
+DELETE FROM "machine";
+INSERT INTO "machine" VALUES(1,'salmson01',1,'pump',3,22,'serialport',1,CURRENT_TIMESTAMP);
+INSERT INTO "machine" VALUES(2,'franklin01',1,'pump',3,38,'serialport',1,CURRENT_TIMESTAMP);
+
+DELETE FROM "location";
+INSERT INTO "location" VALUES(1,'wolwedans_sw','Suid-Westelike oewer van die Wolwedans Dam',
+    '33°59''48.68""S','22°12''11.45""E',CURRENT_TIMESTAMP);
+
+DELETE FROM "basestation";
+INSERT INTO "basestation" VALUES(1,'wolwedans01',1,CURRENT_TIMESTAMP);
+
+DELETE FROM "serialport";
+INSERT INTO "serialport" VALUES(1,1,'/dev/ttyACM0',115200,'8N1',CURRENT_TIMESTAMP);
+INSERT INTO "serialport" VALUES(2,2,'/dev/ttyACM1',115200,'8N1',CURRENT_TIMESTAMP);
+
+DELETE FROM "user";
+INSERT INTO "user" VALUES(1,'robot7','f91dc560a725535acb8fb3541201199b6599fca60621f05a58999d7debc6d1bf',
+    'Robot','Seven','0835551234','info@robot7.co.za','en','index',1,1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+
+COMMIT;

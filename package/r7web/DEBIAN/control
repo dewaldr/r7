@@ -1,0 +1,9 @@
+Package: r7web
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: all
+Depends: php5-fpm (>= 5.4), php5-sqlite (>= 5.4)
+Maintainer: Dewald Rossouw <dewald@robot7.co.za>
+Description: Robot7 Web Interface
+ Web-based user interface for Robot7 machines

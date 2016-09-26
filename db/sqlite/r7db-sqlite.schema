@@ -1,0 +1,74 @@
+-- Geographical location table
+DROP TABLE IF EXISTS "location";
+CREATE TABLE "location" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "name" TEXT NOT NULL,
+    "description" TEXT,
+    "latitude" TEXT DEFAULT ('33°59''48.68""S'),
+    "longitude" TEXT DEFAULT ('22°12''11.45""E'),
+    "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+DROP INDEX IF EXISTS "location_name_idx";
+CREATE UNIQUE INDEX "location_name_idx" on location (name ASC);
+
+-- Base station table
+DROP TABLE IF EXISTS "basestation";
+CREATE TABLE "basestation" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "name" TEXT NOT NULL,
+    "location_id" INTEGER,
+    "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+DROP INDEX IF EXISTS "basestation_name_idx";
+CREATE UNIQUE INDEX "basestation_name_idx" on basestation (name ASC);
+
+-- Machine table
+DROP TABLE IF EXISTS "machine";
+CREATE TABLE machine (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "name" TEXT NOT NULL,
+    "basestation_id" INTEGER NOT NULL DEFAULT (0),
+    -- Types: pump, valve or pivot
+    "type" TEXT NOT NULL DEFAULT ('pump'),
+    -- Phases: 1 or 3
+    "phase" INTEGER NOT NULL DEFAULT (3),
+    "power" INTEGER DEFAULT (0),
+    -- Control: serialport or gpio
+    "control" TEXT DEFAULT ('serialport'),
+    "is_active" INTEGER(1) NOT NULL DEFAULT (0),
+    "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+DROP INDEX IF EXISTS "machine_name_idx";
+CREATE UNIQUE INDEX "machine_name_idx" on machine (name ASC);
+
+-- Serial port table
+DROP TABLE IF EXISTS "serialport";
+CREATE TABLE "serialport" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "machine_id" INTEGER NOT NULL DEFAULT (0),
+    "port" TEXT NOT NULL DEFAULT ('/dev/ttyUSB0'),
+    "baudrate" INTEGER NOT NULL DEFAULT (9600),
+    "settings" TEXT NOT NULL DEFAULT ('8N1'),
+    "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- User table
+-- password is a SHA256 message hash
+DROP TABLE IF EXISTS "user";
+CREATE TABLE "user" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    "login" TEXT NOT NULL, 
+    "password" TEXT NOT NULL, 
+    "firstname" TEXT NULL, 
+    "lastname" TEXT NULL, 
+    "mobile" TEXT NULL, 
+    "email" TEXT NULL, 
+    "language" TEXT NULL DEFAULT ('en'),
+    "start_page" TEXT NULL DEFAULT ('index'),
+    "is_admin" INTEGER(1) NOT NULL DEFAULT (0), 
+    "is_active" INTEGER(1) NOT NULL DEFAULT (1), 
+    "last_seen" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+DROP INDEX IF EXISTS "user_login_idx";
+CREATE UNIQUE INDEX "user_login_idx" on user (login ASC);

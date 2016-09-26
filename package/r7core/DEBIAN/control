@@ -1,0 +1,9 @@
+Package: r7core
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: i386
+Depends: python2.7 (>= 2.7)
+Maintainer: Dewald Rossouw <dewald@robot7.co.za>
+Description: Robot7 Core
+ Control machines from base station

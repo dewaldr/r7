@@ -1,0 +1,56 @@
+<?php
+/**
+ * navigate.phtml
+ *
+ * @package default
+ */
+
+
+$f3 = \Base::instance() ?>
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="/">Robot 7 Home</a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section 
+    <ul class="left">
+      <li class="divider"></li>
+      <li class="has-dropdown"><a href="#">Main Item 1</a>
+        <ul class="dropdown">
+          <li class="has-dropdown"><a href="#">Dropdown Level 1a</a>
+            <ul class="dropdown">
+              <li><label>Dropdown Level 2 Label</label></li>
+              <li><a href="#">Dropdown Level 2a</a></li>
+              <li><a href="#">Dropdown Level 2b</a></li>
+            </ul>
+          </li>
+          <li><a href="#">See all &rarr;</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+    </ul>
+    -->
+
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+      <li class="has-dropdown"><a href="/user"> <?php echo $f3->get('SESSION.login'); ?> profile</a>
+        <ul class="dropdown">
+          <li><a href="/prefs">Set preferences</a></li>
+          <li class="divider"></li>
+          <li><a href="/pwd">Change password</a></li>
+          <li class="divider"></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>

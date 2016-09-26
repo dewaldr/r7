@@ -1,0 +1,23 @@
+<?php $f3 = \Base::instance() ?>
+<?php echo \View::instance()->render('views/header.phtml'); ?>
+<?php echo \View::instance()->render('views/navigate.phtml'); ?>
+
+<!-- body content -->
+<div class="row">
+    <div class="small-1 columns"><h5>ID</h5></div>
+    <div class="small-1 columns"><h5>Name</h5></div>
+    <div class="small-1 columns"><h5>Type</h5></div>
+    <div class="small-1 columns"><h5>Power</h5></div>
+    <div class="small-8 columns"><h5>Phase</h5></div>
+</div>
+<?php foreach ($result as $item) { ?>
+    <div class="row">
+        <div class="small-1 columns"><?php echo $item['id']; ?></div>
+        <div class="small-1 columns"><?php echo $item['name']; ?></div>
+        <div class="small-1 columns"><?php echo $item['type']; ?></div>
+        <div class="small-1 columns"><?php echo $item['power']; ?></div>
+        <div class="small-8 columns"><?php echo $item['phase']; ?></div>
+    </div>
+<?php } ?>
+
+<?php echo \View::instance()->render('views/footer.phtml'); ?>

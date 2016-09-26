@@ -1,0 +1,40 @@
+<?php
+/**
+ * pwd.phtml
+ *
+ * @package default
+ */
+
+
+$f3 = \Base::instance() ?>
+
+<?php echo \View::instance()->render('views/header.phtml'); ?>
+<?php echo \View::instance()->render('views/navigate.phtml'); ?>
+
+<div id="pwdModal" class="reveal-modal small" data-reveal>
+  <h2>Change your password</h2>
+  <form data-abide>
+    <div class="password-field">
+      <label>Current password <small>required</small></label>
+      <input name="oldpwd" type="password" required>
+      <small class="error">Your current password is required.</small>
+    </div>
+    <div class="password-field">
+      <label>New password <small>required</small></label>
+      <input name="newpwd" type="password" required>
+      <small class="error">Your new password is required.</small>
+    </div>
+    <button type="submit" formaction="/pwd" formmethod="post">Submit</button>
+  </form>
+  <a class="close-reveal-modal">&#215;</a>
+  <!-- TODO: format with foundation -->
+  <p><?php echo $f3->get('SESSION.notifications.error'); ?></p>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#pwdModal").foundation('reveal', 'open');
+  });
+</script>
+
+<?php echo \View::instance()->render('views/footer.phtml'); ?>

@@ -1,0 +1,9 @@
+Package: r7db
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: all
+Depends: sqlite3 (>= 3.7)
+Maintainer: Dewald Rossouw <dewald@robot7.co.za>
+Description: Robot7 Database
+ Database for Robot7 base stations

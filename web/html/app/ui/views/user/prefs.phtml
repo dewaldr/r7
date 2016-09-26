@@ -1,0 +1,39 @@
+<?php
+/**
+ * prefs.phtml
+ *
+ * @package default
+ */
+
+$f3 = \Base::instance() ?>
+
+<?php echo \View::instance()->render('views/header.phtml'); ?>
+<?php echo \View::instance()->render('views/navigate.phtml'); ?>
+
+<div id="prefsModal" class="reveal-modal small" data-reveal>
+  <h2>Set preferences</h2>
+  <a class="close-reveal-modal">&#215;</a>
+  <form data-abide>
+    <select name="language">
+        <!-- TODO: select from DB (template?) -->
+        <option value="en" selected>English</option>
+        <option value="af">Afrikaans</option>
+    </select>
+    <select name="start_page">
+        <!-- TODO: select from DB (template?) -->
+        <option value="index" selected>List</option>
+        <option value="detail">Detail</option>
+        <option value="compact">Compact</option>
+    </select>
+            <button type="submit" formaction="/prefs" formmethod="post">Submit</button>
+  </form>
+  <p><?php echo $f3->get('SESSION.notifications.error'); ?></p>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#prefsModal").foundation('reveal', 'open');
+  });
+</script>
+
+<?php echo \View::instance()->render('views/footer.phtml'); ?>
