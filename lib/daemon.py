@@ -23,7 +23,8 @@ work on OS X
 
 # Core modules
 import atexit
-import pwd,os
+import os
+import pwd
 import sys
 import time
 import signal
@@ -32,13 +33,13 @@ import signal
 class Daemon(object):
     """
     A generic daemon class.
-    
+
     Usage: subclass the Daemon class and override the run() method
     """
     def __init__(self, pidfile, stdin=os.devnull,
-                 stdout=os.devnull, stderr=os.devnull,
-                 user='root', group='root', home_dir='.', 
-                 umask=022, verbose=1):
+            stdout=os.devnull, stderr=os.devnull,
+            user='root', group='root', home_dir='.',
+            umask=022, verbose=1):
         self.stdin = stdin
         self.stdout = stdout
         self.stderr = stderr
@@ -62,7 +63,7 @@ class Daemon(object):
                 sys.exit(0)
         except OSError, e:
             sys.stderr.write(
-                "fork #1 failed: %d (%s)\n" % (e.errno, e.strerror))
+                    "fork #1 failed: %d (%s)\n" % (e.errno, e.strerror))
             sys.exit(1)
 
         # Decouple from parent environment
@@ -214,6 +215,3 @@ class Daemon(object):
         It will be called after the process has been
         daemonized by start() or restart().
         """
-
-
-

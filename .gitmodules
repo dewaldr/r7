@@ -1,0 +1,21 @@
+[submodule "3rd-party/Arduino-Makefile"]
+	path = 3rd-party/Arduino-Makefile
+	url = https://github.com/sudar/Arduino-Makefile.git
+[submodule "3rd-party/fatfree"]
+	path = 3rd-party/fatfree
+	url = https://github.com/bcosca/fatfree/
+[submodule "3rd-party/f3-boilerplate"]
+	path = 3rd-party/f3-boilerplate
+	url = https://github.com/vijinho/f3-boilerplate.git
+[submodule "3rd-party/RFM12B"]
+	path = 3rd-party/RFM12B
+	url = https://github.com/LowPowerLab/RFM12B.git
+[submodule "3rd-party/vim-arduino-syntax"]
+	path = 3rd-party/vim-arduino-syntax
+	url = https://github.com/sudar/vim-arduino-syntax.git
+[submodule "3rd-party/wiringPi"]
+	path = 3rd-party/wiringPi
+	url = https://github.com/WiringPi/WiringPi.git
+[submodule "3rd-party/emonLib"]
+	path = 3rd-party/emonLib
+	url = https://github.com/openenergymonitor/EmonLib.git
